@@ -4,4 +4,4 @@ export const getAreasRequest = async () => await axios.get('http://localhost:400
 
 export const CrearArea = async (area) => await axios.post('http://localhost:4000/areas', area)
 
-export const DeleteArea = async (id) => await axios.delete('http://localhost:4000/areas/${id}')
+export const DeleteArea = async (id) => await axios.delete(`http://localhost:4000/areas/${id}`)

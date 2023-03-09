@@ -1,28 +1,34 @@
 import { useEffect, useState } from 'react'
-import { getAreasRequest } from '../aoi/areas.api'
 import AreaCard from '../components/areaCard'
+import {useAreas} from '../context/areasContext'
 
 function AreasPage() {
-  const [areas, setareas] = useState([])
+  const {areas, loadAreas, login} = useAreas()
 
   useEffect(() => {
 
-    async function loadAreas() {
-      const resp = await getAreasRequest()
-      console.log(resp.data)
-      setareas(resp.data)
-    }
     loadAreas()
+    console.log(login)
   }, [])
 
+  function renderMain(){
+    if (areas.length === 0 ) return <h1> NO EXISTEN AREAS </h1>
+    
+    
+    return areas.map(area => (
+      <AreaCard area={area} key={area.id}/>));
+  }
+
   return (
-    <div>
-      <h1>AreasPage</h1>
-      {
-        areas.map(area => (
-          <AreaCard area={area} key={area.id}/>
-        ))
-      }
+    <div className='text-3xl font-bold underline'>
+      <h1 className='mb-10'>AreasPage</h1>
+      
+        <div className=" columns-3">
+
+            {renderMain()}
+            
+        </div>
+      
     </div>
   )
 }
