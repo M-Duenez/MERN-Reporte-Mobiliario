@@ -3,6 +3,7 @@ import morgan from 'morgan'
 import cors from  'cors'
 import areasRoutes from './routes/areas.routes.js'
 import login from './routes/login.routes.js'
+import users from "./routes/users.routes.js";
 import {PORT} from './keys.js'
 
 
@@ -20,6 +21,7 @@ app.use(express.json());
 //Routes
 app.use( areasRoutes);
 app.use( login);
+app.use( users);
 
 
 //Static files

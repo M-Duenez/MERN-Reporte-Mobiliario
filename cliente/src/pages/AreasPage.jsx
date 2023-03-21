@@ -20,10 +20,10 @@ function AreasPage() {
   }
 
   return (
-    <div className='text-3xl font-bold underline'>
+    <div className='mx-10 text-3xl font-bold '>
       <h1 className='mb-10'>AreasPage</h1>
       
-        <div className=" columns-3">
+        <div className="columns-3">
 
             {renderMain()}
             
